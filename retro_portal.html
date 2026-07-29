@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Notscape Nostalgia Gold(ish)</title>
+  <style>
+    body {
+      background-color: #c0c0c0;
+      color: #000000;
+      font-family: "Times New Roman", Times, serif;
+      margin: 20px;
+      padding: 10px;
+    }
+    h1 {
+      color: #000080;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    .subtitle {
+      text-align: center;
+      font-style: italic;
+      margin-top: 0;
+      font-size: 1.1em;
+    }
+    .welcome-box {
+      border: 3px outset #ffffff;
+      padding: 15px;
+      background-color: #c0c0c0;
+      margin-bottom: 20px;
+    }
+    .search-container {
+      text-align: center;
+      margin: 25px 0;
+      padding: 15px;
+      border: 2px inset #808080;
+      background-color: #d4d0c8;
+    }
+    .search-input {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 16px;
+      padding: 3px;
+      width: 300px;
+      border: 2px inset #808080;
+    }
+    .search-button {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 16px;
+      padding: 2px 10px;
+      border: 2px outset #ffffff;
+      background-color: #c0c0c0;
+      cursor: pointer;
+    }
+    .search-button:active {
+      border: 2px inset #808080;
+    }
+    table.directory {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table.directory td {
+      padding: 10px;
+      vertical-align: top;
+      width: 50%;
+    }
+    .section-title {
+      font-weight: bold;
+      font-size: 1.2em;
+      border-bottom: 2px solid #000080;
+      color: #000080;
+      margin-bottom: 8px;
+    }
+    ul {
+      margin-top: 5px;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    a {
+      color: #0000ff;
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #551a8b;
+    }
+    hr {
+      border: 0;
+      border-top: 2px inset #ffffff;
+      margin: 20px 0;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.85em;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="welcome-box">
+    <h1>Welcome to Notscape Nostalgia Gold(ish)</h1>
+    <p class="subtitle">"The browser that makes the Web feel like 1996 again."</p>
+    
+    <p>
+      You are viewing the default start page of your new nostalgic web browser. This wrapper renders the modern web inside a classic, beveled frame mimicking the late Netscape 3.x browser. Use the address bar above to navigate anywhere, or use the links below to explore retro web archives.
+    </p>
+  </div>
+
+  <div class="search-container">
+    <form action="https://www.google.com/search" method="GET" target="_self">
+      <strong>Search the Net: </strong>
+      <input type="text" name="q" class="search-input" placeholder="Type a search query..." required />
+      <input type="submit" class="search-button" value="Search" />
+    </form>
+  </div>
+
+  <table class="directory" border="1" bordercolor="#808080">
+    <tr>
+      <td>
+        <div class="section-title">Retro Mirrors & Archives</div>
+        <ul>
+          <li><a href="https://www.spacejam.com/1996/">Original 1996 Space Jam Page</a> - Yes, the original promotional website is still live and hosting its assets!</li>
+          <li><a href="https://archive.org">The Internet Archive</a> - Explore snapshots of old websites using the Wayback Machine.</li>
+          <li><a href="https://wayback.archive.org/web/19961017235908/http://www2.yahoo.com/">Yahoo! in 1996 (Wayback)</a> - Browse the web directories of the past.</li>
+          <li><a href="https://en.wikipedia.org/wiki/Netscape">Netscape on Wikipedia</a> - Read the history of Netscape Communications Corporation and the browser wars.</li>
+        </ul>
+      </td>
+      <td>
+        <div class="section-title">NotScape Navigator Tips</div>
+        <ul>
+          <li><strong>Custom HTML Menus:</strong> Try clicking the File, Options, or Bookmarks menus at the top to configure your settings or add links.</li>
+          <li><strong>Animated Throbber:</strong> Click the animated space "N" logo in the upper-right corner at any time to return to this homepage.</li>
+          <li><strong>Classic Font:</strong> All web page fonts in the early web defaulted to Times New Roman. If a modern page looks clean, it's because it overrides this standard browser fallback!</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <hr />
+
+  <div class="footer">
+    <p>Notscape Nostalgia Gold(ish) v1.0.0 &bull; Running on Electron & Chromium</p>
+  </div>
+
+</body>
+</html>

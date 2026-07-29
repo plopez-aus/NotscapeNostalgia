@@ -1,0 +1,20 @@
+{
+  "name": "notscape-nostalgia-goldish",
+  "version": "1.0.0",
+  "description": "A nostalgic Windows 95 styled web browser wrapper using Electron.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "retro",
+    "netscape",
+    "browser",
+    "windows-95"
+  ],
+  "author": "Antigravity Pair",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^43.2.0"
+  }
+}

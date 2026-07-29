@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Notscape Nostalgia Gold(ish)</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body class="win95-container">
+
+  <!-- Custom Windows 95 Title Bar -->
+  <div class="win95-title-bar">
+    <div class="title-bar-left">
+      <!-- 16x16 N icon -->
+      <svg class="title-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" fill="#005a5b" />
+        <path d="M4 36 A16 16 0 0 1 36 36 Z" fill="#000000" />
+        <text x="20" y="32" font-family="'Times New Roman', Times, serif" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+      </svg>
+      <span class="title-text" id="window-title">Welcome to Notscape Nostalgia Gold(ish)</span>
+    </div>
+    <div class="title-bar-right">
+      <button class="win95-title-btn" id="title-btn-min" title="Minimize">&ndash;</button>
+      <button class="win95-title-btn" id="title-btn-max" title="Maximize">&#9633;</button>
+      <button class="win95-title-btn" id="title-btn-close" title="Close">&times;</button>
+    </div>
+  </div>
+
+  <!-- Custom Menu Bar -->
+  <div class="menu-bar bevel-outset">
+    <div class="menu-item" id="menu-file">
+      <span><u>F</u>ile</span>
+      <div class="dropdown-menu bevel-outset">
+        <div class="dropdown-option" id="opt-new-window">New Web Browser Window</div>
+        <div class="dropdown-option" id="opt-open-location">Open Location... <span class="shortcut">Ctrl+L</span></div>
+        <div class="dropdown-option" id="opt-print">Print Page... <span class="shortcut">Ctrl+P</span></div>
+        <div class="dropdown-separator"></div>
+        <div class="dropdown-option" id="opt-close">Close <span class="shortcut">Ctrl+W</span></div>
+      </div>
+    </div>
+    <div class="menu-item" id="menu-edit">
+      <span><u>E</u>dit</span>
+      <div class="dropdown-menu bevel-outset">
+        <div class="dropdown-option disabled">Undo</div>
+        <div class="dropdown-option disabled">Redo</div>
+        <div class="dropdown-separator"></div>
+        <div class="dropdown-option" id="opt-cut">Cut</div>
+        <div class="dropdown-option" id="opt-copy">Copy</div>
+        <div class="dropdown-option" id="opt-paste">Paste</div>
+      </div>
+    </div>
+    <div class="menu-item" id="menu-view">
+      <span><u>V</u>iew</span>
+      <div class="dropdown-menu bevel-outset">
+        <div class="dropdown-option" id="opt-reload-view">Reload <span class="shortcut">Ctrl+R</span></div>
+        <div class="dropdown-option" id="opt-source-view">Document Source</div>
+      </div>
+    </div>
+    <div class="menu-item" id="menu-go">
+      <span><u>G</u>o</span>
+      <div class="dropdown-menu bevel-outset">
+        <div class="dropdown-option" id="opt-go-back">Back <span class="shortcut">Alt+&larr;</span></div>
+        <div class="dropdown-option" id="opt-go-forward">Forward <span class="shortcut">Alt+&rarr;</span></div>
+        <div class="dropdown-option" id="opt-go-home">Home Page</div>
+      </div>
+    </div>
+    <div class="menu-item" id="menu-bookmarks">
+      <span><u>B</u>ookmarks</span>
+      <div class="dropdown-menu bevel-outset" id="bookmarks-dropdown-list">
+        <div class="dropdown-option" id="opt-add-bookmark">Add Bookmark <span class="shortcut">Ctrl+D</span></div>
+        <div class="dropdown-separator"></div>
+        <!-- Bookmark items will be dynamically injected here -->
+      </div>
+    </div>
+    <div class="menu-item" id="menu-options">
+      <span><u>O</u>ptions</span>
+      <div class="dropdown-menu bevel-outset">
+        <div class="dropdown-option" id="opt-pref">General Preferences...</div>
+      </div>
+    </div>
+    <div class="menu-item" id="menu-help">
+      <span><u>H</u>elp</span>
+      <div class="dropdown-menu bevel-outset">
+        <div class="dropdown-option" id="opt-about">About Notscape Nostalgia Gold(ish)...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Toolbar -->
+  <div class="main-toolbar bevel-outset">
+    <div class="toolbar-btn" id="btn-back" title="Back (Alt+Left)">
+      <div class="btn-icon icon-back"></div>
+      <span class="btn-text">Back</span>
+    </div>
+    <div class="toolbar-btn" id="btn-forward" title="Forward (Alt+Right)">
+      <div class="btn-icon icon-forward"></div>
+      <span class="btn-text">Forward</span>
+    </div>
+    <div class="toolbar-btn" id="btn-home" title="Home Page">
+      <div class="btn-icon icon-home"></div>
+      <span class="btn-text">Home</span>
+    </div>
+    <div class="toolbar-btn" id="btn-reload" title="Reload (Ctrl+R)">
+      <div class="btn-icon icon-reload"></div>
+      <span class="btn-text">Reload</span>
+    </div>
+    <div class="toolbar-btn" id="btn-open" title="Open Location (Ctrl+L)">
+      <div class="btn-icon icon-open"></div>
+      <span class="btn-text">Open</span>
+    </div>
+    <div class="toolbar-btn" id="btn-print" title="Print Page (Ctrl+P)">
+      <div class="btn-icon icon-print"></div>
+      <span class="btn-text">Print</span>
+    </div>
+    <div class="toolbar-btn" id="btn-find" title="Find in Page (Ctrl+F)">
+      <div class="btn-icon icon-find"></div>
+      <span class="btn-text">Find</span>
+    </div>
+    <div class="toolbar-btn" id="btn-stop" title="Stop Loading">
+      <div class="btn-icon icon-stop"></div>
+      <span class="btn-text">Stop</span>
+    </div>
+
+    <!-- Animated Netscape Space Meteor Throbber -->
+    <div class="throbber-box bevel-inset" id="btn-throbber" title="Go to home portal">
+      <div class="throbber-logo" id="throbber-animation">
+        <div class="logo-letter">N</div>
+        <div class="stars-field"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Location/URL Bar -->
+  <div class="location-bar bevel-outset">
+    <div class="location-label" id="location-bar-label">Netsite:</div>
+    <div class="bookmark-helper bevel-outset" id="btn-bookmark-helper" title="Drag page or bookmark link">
+      <div class="bookmark-icon"></div>
+    </div>
+    <div class="url-input-container bevel-inset">
+      <input type="text" id="url-input" value="notscape://portal" spellcheck="false">
+      <div class="history-dropdown-btn" id="btn-history-dropdown">
+        <div class="arrow-down"></div>
+      </div>
+      <!-- History Dropdown List -->
+      <div class="history-list bevel-outset" id="history-dropdown-list">
+        <!-- History links will be injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Directory Buttons -->
+  <div class="directory-bar bevel-outset">
+    <div class="directory-btn bevel-outset" data-url="notscape://portal">What's New?</div>
+    <div class="directory-btn bevel-outset" data-url="https://www.spacejam.com/1996/">What's Cool?</div>
+    <div class="directory-btn bevel-outset" data-url="https://archive.org">Destinations</div>
+    <div class="directory-btn bevel-outset" data-url="https://www.google.com">Net Search</div>
+    <div class="directory-btn bevel-outset" data-url="https://wikipedia.org">People</div>
+    <div class="directory-btn bevel-outset" data-url="https://github.com">Software</div>
+  </div>
+
+  <!-- Web Browser Rendering viewport -->
+  <div class="webview-container bevel-inset">
+    <webview id="browser-webview" src="notscape://portal" partition="persist:notscape_session"></webview>
+  </div>
+
+  <!-- Bottom Status Bar -->
+  <div class="status-bar bevel-outset">
+    <div class="status-message bevel-inset" id="status-text">Document: Done</div>
+    <div class="status-progress bevel-inset" id="status-progress-container">
+      <div class="progress-fill" id="status-progress-bar"></div>
+    </div>
+    <div class="status-security bevel-inset" id="security-indicator" title="Security Status">
+      <div class="security-padlock locked" id="padlock-icon"></div>
+    </div>
+  </div>
+
+  <!-- PREFERENCES MODAL DIALOG -->
+  <div class="modal-overlay" id="preferences-overlay">
+    <div class="modal-box bevel-outset-deep">
+      <div class="modal-title-bar">
+        <span class="modal-title">General Preferences</span>
+        <button class="modal-close-btn" id="pref-title-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-tabs">
+          <div class="modal-tab-header active" id="tab-appearance-btn">Appearance</div>
+          <div class="modal-tab-header" id="tab-navigator-btn">Navigator</div>
+        </div>
+        
+        <!-- Tab Content: Appearance -->
+        <div class="modal-tab-content active" id="tab-appearance">
+          <fieldset class="pref-fieldset">
+            <legend>Toolbar Appearance</legend>
+            <div class="radio-group">
+              <label><input type="radio" name="toolbar_appearance" value="pictures_and_text" checked> Pictures and Text</label>
+              <label><input type="radio" name="toolbar_appearance" value="pictures_only"> Pictures Only</label>
+              <label><input type="radio" name="toolbar_appearance" value="text_only"> Text Only</label>
+            </div>
+          </fieldset>
+          
+          <fieldset class="pref-fieldset" style="margin-top: 15px;">
+            <legend>Link Styles</legend>
+            <label><input type="checkbox" id="pref-underline-links" checked> Underline hyperlinks</label>
+          </fieldset>
+        </div>
+
+        <!-- Tab Content: Navigator -->
+        <div class="modal-tab-content" id="tab-navigator">
+          <fieldset class="pref-fieldset">
+            <legend>Startup Behavior</legend>
+            <div class="radio-group">
+              <label><input type="radio" name="start_mode" value="homepage" checked> Start with Home Page</label>
+              <label><input type="radio" name="start_mode" value="blank"> Start with Blank Page</label>
+            </div>
+            <div style="margin-top: 8px;">
+              <label for="pref-homepage-url">Home Page Location:</label><br>
+              <input type="text" id="pref-homepage-url" style="width: 95%; border: 2px inset #808080;" value="notscape://portal">
+            </div>
+          </fieldset>
+          
+          <fieldset class="pref-fieldset" style="margin-top: 15px;">
+            <legend>History Logs</legend>
+            <label for="pref-history-days">Expire history entries after: </label>
+            <input type="number" id="pref-history-days" style="width: 50px; border: 2px inset #808080;" value="9" min="1" max="99"> days
+            <div style="margin-top: 8px;">
+              <button class="win95-button" id="btn-clear-history">Clear History Now</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="pref-fieldset" style="margin-top: 15px;">
+            <legend>Privacy & Security</legend>
+            <label><input type="checkbox" id="pref-enable-adblock" checked> Enable built-in Ad-Blocker (EasyList Lite)</label>
+          </fieldset>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="win95-button default" id="pref-ok-btn">OK</button>
+        <button class="win95-button" id="pref-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT MODAL DIALOG -->
+  <div class="modal-overlay" id="about-overlay">
+    <div class="modal-box bevel-outset-deep" style="width: 420px;">
+      <div class="modal-title-bar">
+        <span class="modal-title">About Notscape Nostalgia Gold(ish)</span>
+        <button class="modal-close-btn" id="about-title-close">&times;</button>
+      </div>
+      <div class="modal-body text-center" style="font-family: 'Times New Roman', Times, serif; font-size: 15px; padding: 20px;">
+        <h2 style="color: #000080; margin-top: 0; font-family: 'Times New Roman', serif;">Notscape Nostalgia Gold(ish)</h2>
+        <p style="font-style: italic;">Version 1.0.0 (Release 1996-2026)</p>
+        <hr style="border: 0; border-top: 2px inset #ffffff;">
+        <p>A modern nostalgic browser engine wrapping Chromium with classical, retro Windows 95 aesthetics.</p>
+        <p>Copyright &copy; 2026 Communications Company. All Rights Reserved.</p>
+        <p>This software is built for nostalgic purposes and runs on top of Electron.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="win95-button default" id="about-ok-btn" style="width: 80px;">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

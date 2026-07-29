@@ -1,0 +1,740 @@
+/* CSS Custom Properties for Windows 95 Theme */
+:root {
+  --win-gray: #d4d0c8;
+  --bevel-light: #ffffff;
+  --bevel-shadow: #808080;
+  --bevel-dark: #404040;
+  --win-white: #ffffff;
+  --text-color: #000000;
+  --text-disabled: #808080;
+  --navy-blue: #000080;
+  --navy-light: #1080d0;
+  --link-color: #0000ee;
+  
+  --ui-font: "MS Sans Serif", "Tahoma", "Segoe UI", -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--ui-font);
+  font-size: 12px;
+  background-color: var(--win-gray);
+  color: var(--text-color);
+  user-select: none;
+}
+
+/* Bevel Borders Utilities */
+.bevel-outset {
+  border-top: 1.5px solid var(--bevel-light);
+  border-left: 1.5px solid var(--bevel-light);
+  border-bottom: 1.5px solid var(--bevel-shadow);
+  border-right: 1.5px solid var(--bevel-shadow);
+  background-color: var(--win-gray);
+}
+
+.bevel-inset {
+  border-top: 1.5px solid var(--bevel-shadow);
+  border-left: 1.5px solid var(--bevel-shadow);
+  border-bottom: 1.5px solid var(--bevel-light);
+  border-right: 1.5px solid var(--bevel-light);
+  background-color: var(--win-white);
+}
+
+.bevel-outset-deep {
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-bottom: 2px solid var(--bevel-dark);
+  border-right: 2px solid var(--bevel-dark);
+  box-shadow: inset -1px -1px 0 var(--bevel-shadow), inset 1px 1px 0 var(--bevel-light);
+  background-color: var(--win-gray);
+}
+
+/* Master Layout Structure */
+.win95-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* 1. Custom Menu Bar Styling */
+.menu-bar {
+  display: flex;
+  padding: 2px 4px;
+  z-index: 100;
+  gap: 2px;
+}
+
+.menu-item {
+  position: relative;
+  padding: 3px 8px;
+  cursor: default;
+}
+
+.menu-item:hover {
+  background-color: var(--navy-blue);
+  color: var(--bevel-light);
+}
+
+.menu-item span u {
+  text-decoration: underline;
+}
+
+/* Dropdown Sub-menus */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 220px;
+  background-color: var(--win-gray);
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  z-index: 200;
+  padding: 2px;
+  color: var(--text-color);
+}
+
+.menu-item:hover .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-option {
+  padding: 4px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: default;
+}
+
+.dropdown-option:hover {
+  background-color: var(--navy-blue);
+  color: var(--bevel-light);
+}
+
+.dropdown-option.disabled {
+  color: var(--text-disabled);
+  pointer-events: none;
+}
+
+.dropdown-option .shortcut {
+  font-size: 11px;
+  color: var(--bevel-shadow);
+}
+
+.dropdown-option:hover .shortcut {
+  color: var(--win-gray);
+}
+
+.dropdown-separator {
+  height: 1px;
+  border-top: 1px solid var(--bevel-shadow);
+  border-bottom: 1px solid var(--bevel-light);
+  margin: 4px 1px;
+}
+
+/* 2. Main Toolbar Styling */
+.main-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 4px 6px;
+  gap: 4px;
+  flex-wrap: nowrap;
+}
+
+.toolbar-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 52px;
+  border: 1.5px solid transparent;
+  border-radius: 0;
+  cursor: default;
+  padding: 2px;
+}
+
+/* Bevel on Hover/Press mimics Netscape toolbar mechanics */
+.toolbar-btn:hover {
+  border-top: 1.5px solid var(--bevel-light);
+  border-left: 1.5px solid var(--bevel-light);
+  border-bottom: 1.5px solid var(--bevel-shadow);
+  border-right: 1.5px solid var(--bevel-shadow);
+}
+
+.toolbar-btn:active, .toolbar-btn.active {
+  border-top: 1.5px solid var(--bevel-shadow);
+  border-left: 1.5px solid var(--bevel-shadow);
+  border-bottom: 1.5px solid var(--bevel-light);
+  border-right: 1.5px solid var(--bevel-light);
+  padding: 3px 1px 1px 3px; /* shift content offset slightly to simulate click depth */
+}
+
+.toolbar-btn.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.btn-icon {
+  width: 28px;
+  height: 28px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 2px;
+}
+
+.btn-text {
+  font-size: 10px;
+  text-align: center;
+}
+
+/* Base64/Inline SVGs for Navigation Icons */
+.icon-back { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="%23000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 19l-7-7 7-7"/></svg>'); }
+.icon-forward { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="%23000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>'); }
+.icon-home { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="%23000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>'); }
+.icon-reload { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="%23000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38"/></svg>'); }
+.icon-open { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="%23000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>'); }
+.icon-print { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="%23000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>'); }
+.icon-find { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="%23000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'); }
+.icon-stop { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="%23cc0000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'); }
+
+/* Throbber animated space logo style */
+.throbber-box {
+  margin-left: auto; /* Push to far right */
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  overflow: hidden;
+  position: relative;
+}
+
+.throbber-box:active {
+  border-top: 1.5px solid var(--bevel-shadow);
+  border-left: 1.5px solid var(--bevel-shadow);
+  border-bottom: 1.5px solid var(--bevel-light);
+  border-right: 1.5px solid var(--bevel-light);
+}
+
+.throbber-logo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: radial-gradient(circle, #0c1b33 0%, #000000 100%);
+}
+
+.logo-letter {
+  font-family: "Times New Roman", Times, Georgia, serif;
+  font-size: 38px;
+  font-weight: bold;
+  color: #c0c0c0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8), -1px -1px 0 #ffffff;
+  z-index: 10;
+  transition: transform 0.1s ease;
+}
+
+.stars-field {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: 
+    radial-gradient(1px 1px at 10px 15px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 30px 25px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 15px 35px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 38px 8px, #fff, rgba(0,0,0,0));
+  opacity: 0.6;
+  z-index: 5;
+}
+
+/* Shooting Meteors Overlay */
+.stars-field::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,69,0,0.85) 12%, rgba(0,0,0,0) 25%),
+    linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,140,0,0.85) 10%, rgba(0,0,0,0) 22%),
+    linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,0,0,0.75) 8%, rgba(0,0,0,0) 18%);
+  background-size: 32px 32px;
+  background-repeat: repeat;
+  background-position: 0px 0px, 16px 16px, 8px 24px;
+  opacity: 0;
+  z-index: 6;
+}
+
+/* Throbber Shooting Stars Animation during Web Load */
+.throbber-box.loading .stars-field::after {
+  opacity: 1;
+  animation: meteorRain 0.35s infinite linear;
+}
+
+.throbber-box.loading .logo-letter {
+  animation: pulseLogo 0.8s infinite ease-in-out;
+}
+
+@keyframes meteorRain {
+  0% {
+    background-position: 0px 0px, 16px 16px, 8px 24px;
+  }
+  100% {
+    background-position: -32px 32px, -16px 48px, -24px 56px;
+  }
+}
+
+@keyframes pulseLogo {
+  0% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.05); filter: brightness(1.3) drop-shadow(0 0 4px #0000ff); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+
+/* 3. Location/URL Bar Styling */
+.location-bar {
+  display: flex;
+  align-items: center;
+  padding: 4px 6px;
+  gap: 6px;
+}
+
+.location-label {
+  font-weight: bold;
+  width: 60px;
+}
+
+.bookmark-helper {
+  width: 24px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+
+.bookmark-icon {
+  width: 16px;
+  height: 14px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffd700" stroke="%23b8860b" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v21H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.url-input-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 22px;
+}
+
+#url-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  height: 100%;
+  font-family: inherit;
+  font-size: 12px;
+  padding: 2px 6px;
+  background: transparent;
+}
+
+.history-dropdown-btn {
+  width: 18px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  background-color: var(--win-gray);
+  border-left: 1.5px solid var(--bevel-light);
+}
+
+.history-dropdown-btn:active {
+  background-color: #b0afae;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000000;
+}
+
+/* History list overlay */
+.history-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--win-white);
+  border: 1px solid var(--bevel-shadow);
+  z-index: 150;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.history-list-item {
+  padding: 4px 8px;
+  cursor: default;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-list-item:hover {
+  background-color: var(--navy-blue);
+  color: var(--win-white);
+}
+
+/* 4. Directory Buttons Bar */
+.directory-bar {
+  display: flex;
+  padding: 2px 6px;
+  gap: 3px;
+}
+
+.directory-btn {
+  flex: 1;
+  padding: 4px 2px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--navy-blue);
+  cursor: default;
+}
+
+.directory-btn:active {
+  border-top: 1.5px solid var(--bevel-shadow);
+  border-left: 1.5px solid var(--bevel-shadow);
+  border-bottom: 1.5px solid var(--bevel-light);
+  border-right: 1.5px solid var(--bevel-light);
+  padding: 5px 1px 3px 3px;
+}
+
+.webview-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #808080;
+  margin: 2px;
+}
+
+#browser-webview {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* 6. Status Bar Styling */
+.status-bar {
+  display: flex;
+  padding: 2px;
+  gap: 4px;
+  height: 24px;
+  align-items: center;
+}
+
+.status-message {
+  flex: 1;
+  padding: 2px 6px;
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.status-progress {
+  width: 130px;
+  height: 100%;
+  position: relative;
+  background-color: var(--win-white);
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background-color: #008000;
+  transition: width 0.1s ease;
+}
+
+.status-security {
+  width: 32px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--win-gray);
+}
+
+.security-padlock {
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Unlocked (HTTP) */
+.security-padlock.unlocked {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23808080" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>');
+}
+
+/* Locked (HTTPS) */
+.security-padlock.locked {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23d4af37" stroke="%238b6508" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>');
+}
+
+/* 7. Modal Overlay and Dialogs */
+.modal-overlay {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+}
+
+.modal-title-bar {
+  background-color: var(--navy-blue);
+  color: var(--bevel-light);
+  padding: 3px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.modal-close-btn {
+  background: var(--win-gray);
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-bottom: 1.5px solid var(--bevel-dark);
+  border-right: 1.5px solid var(--bevel-dark);
+  font-size: 11px;
+  font-weight: bold;
+  width: 16px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  outline: none;
+}
+
+.modal-close-btn:active {
+  border-top: 1px solid var(--bevel-shadow);
+  border-left: 1px solid var(--bevel-shadow);
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+.modal-body {
+  padding: 10px;
+  background-color: var(--win-gray);
+}
+
+.modal-tabs {
+  display: flex;
+  border-bottom: 1.5px solid var(--bevel-shadow);
+  margin-bottom: 10px;
+  padding-left: 4px;
+  gap: 2px;
+}
+
+.modal-tab-header {
+  padding: 4px 12px;
+  border-top: 1.5px solid var(--bevel-light);
+  border-left: 1.5px solid var(--bevel-light);
+  border-right: 1.5px solid var(--bevel-shadow);
+  background-color: var(--win-gray);
+  margin-bottom: -1.5px;
+  border-bottom: 1.5px solid var(--bevel-shadow);
+  cursor: default;
+  z-index: 10;
+}
+
+.modal-tab-header.active {
+  border-bottom: 1.5px solid var(--win-gray);
+  border-right: 1.5px solid var(--bevel-dark);
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+
+.modal-tab-content {
+  display: none;
+  padding: 8px;
+}
+
+.modal-tab-content.active {
+  display: block;
+}
+
+.pref-fieldset {
+  border-top: 1.5px solid var(--bevel-shadow);
+  border-left: 1.5px solid var(--bevel-shadow);
+  border-bottom: 1.5px solid var(--bevel-light);
+  border-right: 1.5px solid var(--bevel-light);
+  padding: 10px;
+  margin: 0;
+}
+
+.pref-fieldset legend {
+  font-weight: bold;
+  padding: 0 4px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 8px 10px;
+  background-color: var(--win-gray);
+  border-top: 1.5px solid var(--bevel-shadow);
+}
+
+/* Classic Win95 Command Buttons */
+.win95-button {
+  background-color: var(--win-gray);
+  border-top: 1.5px solid var(--bevel-light);
+  border-left: 1.5px solid var(--bevel-light);
+  border-bottom: 1.5px solid var(--bevel-dark);
+  border-right: 1.5px solid var(--bevel-dark);
+  box-shadow: inset -1px -1px 0 var(--bevel-shadow), inset 1px 1px 0 var(--bevel-light);
+  padding: 4px 18px;
+  min-width: 75px;
+  font-family: inherit;
+  font-size: 11px;
+  outline: none;
+  cursor: default;
+}
+
+.win95-button:focus {
+  outline: 1px dotted #000;
+  outline-offset: -3px;
+}
+
+.win95-button:active, .win95-button.active {
+  border-top: 1.5px solid var(--bevel-dark);
+  border-left: 1.5px solid var(--bevel-dark);
+  border-bottom: 1.5px solid var(--bevel-light);
+  border-right: 1.5px solid var(--bevel-light);
+  box-shadow: inset 1px 1px 0 var(--bevel-shadow);
+  padding: 5px 17px 3px 19px;
+}
+
+.win95-button.default {
+  box-shadow: 0 0 0 1px #000000, inset -1px -1px 0 var(--bevel-shadow), inset 1px 1px 0 var(--bevel-light);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Custom Windows 95 Title Bar */
+.win95-title-bar {
+  background: linear-gradient(90deg, #000080 0%, #1084d0 100%);
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 6px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  user-select: none;
+  -webkit-app-region: drag; /* Makes the title bar draggable */
+}
+
+.title-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.title-icon {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ffffff;
+}
+
+.title-text {
+  letter-spacing: 0.5px;
+}
+
+.title-bar-right {
+  display: flex;
+  gap: 2px;
+  -webkit-app-region: no-drag; /* Exclude buttons from dragging region */
+}
+
+.win95-title-btn {
+  width: 20px;
+  height: 18px;
+  background-color: var(--win-gray);
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-bottom: 1.5px solid var(--bevel-dark);
+  border-right: 1.5px solid var(--bevel-dark);
+  color: #000000;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+.win95-title-btn:active {
+  border-top: 1px solid var(--bevel-shadow);
+  border-left: 1px solid var(--bevel-shadow);
+  border-bottom: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  padding: 1px 0 0 1px;
+}
