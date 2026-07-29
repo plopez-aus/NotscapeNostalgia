@@ -1,5 +1,14 @@
 # Notscape Nostalgia Gold(ish) Documentation Index
 
+> [!IMPORTANT]
+> **AI Created:** This project was created entirely using the **Antigravity** AI assistant. The user has not touched the code at all.
+> 
+> **Disclaimer:** The creator is not affiliated with Netscape or any of its affiliates. This is a just-for-fun project.
+> 
+> **Purpose & Security Warning:** Its purpose is purely for nostalgia. It should **not** be used on a production machine, and it should **not** be trusted with anything secure.
+> 
+> Have Fun and Stay Safe!
+
 Welcome to the planning and architecture documentation for **Notscape Nostalgia Gold(ish)** — a modern, nostalgic remake of Netscape Navigator Gold 3.0. 
 
 The goal of this project is to recreate the iconic look and feel of the mid-90s browsing experience (specifically the Netscape 3.0 suite) using modern web technologies, running on a robust modern browser engine capable of rendering the 2026 web.
