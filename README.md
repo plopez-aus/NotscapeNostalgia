@@ -39,6 +39,24 @@ graph TD
 
 ---
 
+## Screenshots
+
+### Splash Screen
+
+![Splash Screen](screenshots/notscape_nostalgia_splash.png)
+
+### Main Browser Window
+
+![Main Browser Window](screenshots/notscape_nostalgia_main.png)
+
+### Preferences Panels
+
+| Preferences: Appearance | Preferences: Navigator |
+| :---: | :---: |
+| ![Preferences: Appearance](screenshots/notscape_nostaligia_pref_appearance.png) | ![Preferences: Navigator](screenshots/notscape_nostaligia_pref_nav.png) |
+
+---
+
 ## Key Features
 
 *   **Windows 95 Aesthetics:** Outline-drawn menus, beveled gray frames, legacy Times New Roman fallbacks, custom retro scrollbars, and dynamic security padlock icons that open/close depending on HTTP/HTTPS connections.
